@@ -26,15 +26,16 @@ public class Stack<Item> {
 
     public void push(Item item) {
         Node<Item> temp = head;
-        head = new Node<Item>();
+        head = new Node<>();
         head.item = item;
         head.next = temp;
         size++;
     }
 
     public Item pop() {
-        if (isEmpty())
+        if (isEmpty()) {
             throw new NoSuchElementException("Stack underflow");
+        }
         Item item = head.item;
         head = head.next;
         size--;
