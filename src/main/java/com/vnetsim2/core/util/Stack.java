@@ -13,7 +13,7 @@ public class Stack<Item> {
 
     public Stack() {
         head = null;
-        size =0;
+        size = 0;
     }
 
     public boolean isEmpty() {
