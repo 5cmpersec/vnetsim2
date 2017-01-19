@@ -47,8 +47,10 @@ public class QueueTest {
         queue.enqueue(0);
         queue.enqueue(1);
         queue.enqueue(2);
+        assertEquals(3, queue.size());
         assertEquals(0, (int) queue.dequeue());
         assertEquals(1, (int) queue.dequeue());
         assertEquals(2, (int) queue.dequeue());
+        assertEquals(0, queue.size());
     }
 }

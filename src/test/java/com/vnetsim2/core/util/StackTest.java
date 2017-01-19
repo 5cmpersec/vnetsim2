@@ -47,8 +47,10 @@ public class StackTest {
         stack.push(0);
         stack.push(1);
         stack.push(2);
+        assertEquals(3, stack.size());
         assertEquals(2, (int) stack.pop());
         assertEquals(1, (int) stack.pop());
         assertEquals(0, (int) stack.pop());
+        assertEquals(0, stack.size());
     }
 }
