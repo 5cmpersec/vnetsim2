@@ -35,7 +35,7 @@ public class MinBinaryHeap<Key> {
             this.keys[i+1] = keys[i]; 
         }
         int lastInnerNode = size/2;
-        for (int j = lastInnerNode; j > 0; j++) {
+        for (int j = lastInnerNode; j > 0; j--) {
             sink(j);
         }
     }
@@ -112,6 +112,7 @@ public class MinBinaryHeap<Key> {
         while (k > 1 && greater(parent, k)) {
             exchange(k, parent);
             k = parent;
+            parent = k/2;
         }
     }
 
