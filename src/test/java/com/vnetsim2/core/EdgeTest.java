@@ -16,6 +16,21 @@ public class EdgeTest {
     public void tearDown() {
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void testExeptionInConstructor1() {
+        Edge e = new Edge(-1, 2, 3.14);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void testExeptionInConstructor2() {
+        Edge e = new Edge(1, -2, 3.14);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void testExeptionInConstructor3() {
+        Edge e = new Edge(1, 2, Double.NaN);
+    }
+
     @Test
     public void testDefaultConstructor() {
         int tV = 1;
@@ -27,6 +42,14 @@ public class EdgeTest {
         assertEquals(true, ((v == tV) || (v == tW)));
         int w = e.other(v);
         assertEquals(true, ((w == tV) || (w == tW)));
+        int g = e.other(w);
+        assertEquals(true, g == v);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void testGetVertex() {
+        Edge e = new Edge(3, 4, 3.121212);
+        int v = e.other(5);
     }
 
     @Test
