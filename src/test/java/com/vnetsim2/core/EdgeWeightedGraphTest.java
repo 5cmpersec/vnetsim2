@@ -73,7 +73,7 @@ public class EdgeWeightedGraphTest {
 
     @Test
     public void testEdges() {
-        InputStream in = this.getClass().getClassLoader().getResourceAsStream("EdgeWeightedGraph/tinyEWG.txt");
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream("EdgeWeightedGraph/mediumEWG.txt");
         EdgeWeightedGraph graph = createGraphFromInputStream(in);
         int count = 0;
         for (Edge e : graph.edges()) {
