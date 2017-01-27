@@ -25,11 +25,11 @@ public class EdgeWeightedGraph {
         copy.E = this.E;
         for (int v = 0; v < copy.V(); v++) {
             Stack<Edge> reverse = new Stack<>();
-            for (Edge e : copy.adj[v]) {
+            for (Edge e : adj[v]) {
                 reverse.push(e);
             }
             while (!reverse.isEmpty()) {
-                adj[v].add(reverse.pop());
+                copy.adj[v].add(reverse.pop());
             }
         }
         return copy;

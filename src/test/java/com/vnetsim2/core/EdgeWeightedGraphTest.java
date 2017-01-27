@@ -43,8 +43,11 @@ public class EdgeWeightedGraphTest {
         assertEquals(8, graph.V());
         assertEquals(16, graph.E());
         EdgeWeightedGraph copy = graph.clone();
-         assertEquals(8, copy.V());
+        assertEquals(8, copy.V());
         assertEquals(16, copy.E());
+        for (int i = 0; i < graph.V(); i++) {
+            assertEquals(graph.degree(i), copy.degree(i));
+        }
     }
 
     private EdgeWeightedGraph createGraphFromInputStream(InputStream in) {
