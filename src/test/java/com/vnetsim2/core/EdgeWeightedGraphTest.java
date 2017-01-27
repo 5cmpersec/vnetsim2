@@ -22,13 +22,29 @@ public class EdgeWeightedGraphTest {
     public void tearDown() {
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void testConstructorInvalidInput() {
+        EdgeWeightedGraph ewg = new EdgeWeightedGraph(-1);
+    }
+
     @Test
-    public void test() {
+    public void testConstructor() {
         InputStream in = this.getClass().getClassLoader().getResourceAsStream("EdgeWeightedGraph/tinyEWG.txt");
         EdgeWeightedGraph graph = createGraphFromInputStream(in);
 
         assertEquals(8, graph.V());
         assertEquals(16, graph.E());
+    }
+
+    @Test
+    public void testClone() {
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream("EdgeWeightedGraph/tinyEWG.txt");
+        EdgeWeightedGraph graph = createGraphFromInputStream(in);
+        assertEquals(8, graph.V());
+        assertEquals(16, graph.E());
+        EdgeWeightedGraph copy = graph.clone();
+         assertEquals(8, copy.V());
+        assertEquals(16, copy.E());
     }
 
     private EdgeWeightedGraph createGraphFromInputStream(InputStream in) {
