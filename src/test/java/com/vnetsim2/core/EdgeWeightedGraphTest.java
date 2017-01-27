@@ -50,6 +50,38 @@ public class EdgeWeightedGraphTest {
         }
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void testAdjThrowException() {
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream("EdgeWeightedGraph/tinyEWG.txt");
+        EdgeWeightedGraph graph = createGraphFromInputStream(in);
+        int v = graph.V();
+        // throw exception
+        graph.adj(v);
+    }
+
+    @Test
+    public void testAdj() {
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream("EdgeWeightedGraph/tinyEWG.txt");
+        EdgeWeightedGraph graph = createGraphFromInputStream(in);
+        for (int i = 0; i < graph.V(); i++) {
+            for (Edge e : graph.adj(i)) {
+                int v = e.either();
+                assertEquals(true, (v == i || e.other(v) == i));
+            }
+        }
+    }
+
+    @Test
+    public void testEdges() {
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream("EdgeWeightedGraph/tinyEWG.txt");
+        EdgeWeightedGraph graph = createGraphFromInputStream(in);
+        int count = 0;
+        for (Edge e : graph.edges()) {
+            count++;
+        }
+        assertEquals(graph.E(), count);
+    }
+
     private EdgeWeightedGraph createGraphFromInputStream(InputStream in) {
         Scanner scanner = new Scanner(new BufferedInputStream(in), StandardCharsets.UTF_8.name());
         scanner.useLocale(Locale.US);
