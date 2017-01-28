@@ -1,6 +1,7 @@
 package com.vnetsim2.core.util;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Random;
 
@@ -58,5 +59,24 @@ public class BagTest {
         Arrays.sort(in);
         Arrays.sort(out);
         assertEquals(true, Arrays.equals(in, out));
+    }
+
+    @Test (expected = UnsupportedOperationException.class)
+    public void testRemoveData() {
+        Bag<Integer> bag = new Bag<>();
+        bag.add(100);
+        assertEquals(1, bag.size());
+        Iterator<Integer> iter = bag.iterator();
+        while (iter.hasNext()) {
+            iter.remove();
+        }
+    }
+
+    @Test (expected = NoSuchElementException.class)
+    public void testIteratorGetDataWhenEmpty() {
+        Bag<Integer> bag = new Bag<>();
+        assertEquals(true, bag.isEmpty());
+        Iterator<Integer> iter = bag.iterator();
+        Integer i = iter.next();
     }
 }
