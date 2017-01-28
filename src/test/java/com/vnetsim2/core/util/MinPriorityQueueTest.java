@@ -2,6 +2,7 @@ package com.vnetsim2.core.util;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import org.junit.After;
@@ -78,5 +79,23 @@ public class MinPriorityQueueTest {
             i++;
         }
         assertEquals(testData.length, mpq.size());
+    }
+
+    @Test (expected = UnsupportedOperationException.class)
+    public void testRemoveData() {
+        MinPriorityQueue<Integer> mpq = new MinPriorityQueue<>(testData, null);
+        assertEquals(testData.length, mpq.size());
+        Iterator<Integer> iter = mpq.iterator();
+        while (iter.hasNext()) {
+            iter.remove();
+        }
+    }
+
+    @Test (expected = NoSuchElementException.class)
+    public void testIteratorGetDataWhenEmpty() {
+        MinPriorityQueue<Integer> mpq = new MinPriorityQueue<>();
+        assertEquals(true, mpq.isEmpty());
+        Iterator<Integer> iter = mpq.iterator();
+        Integer i = iter.next();
     }
 }
