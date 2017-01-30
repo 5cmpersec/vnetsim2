@@ -30,3 +30,7 @@ checkstyle {
 tasks.coveralls {
     onlyIf { System.env.'CI' }
 }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.2.1'
+}
