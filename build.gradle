@@ -6,6 +6,7 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'jacoco'
 apply plugin: 'com.github.kt3k.coveralls'
+apply plugin: 'checkstyle'
 
 repositories {
     mavenCentral()
@@ -20,6 +21,10 @@ jacocoTestReport {
         xml.enabled true
         html.enabled = true
     }
+}
+
+checkstyle {
+    toolVersion = '7.5'
 }
 
 tasks.coveralls {
