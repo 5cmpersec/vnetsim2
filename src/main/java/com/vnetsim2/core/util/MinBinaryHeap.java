@@ -3,13 +3,13 @@ package com.vnetsim2.core.util;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
-public class MinBinaryHeap<Key> {
-  private Key[] keys;
+public class MinBinaryHeap<KeyT> {
+  private KeyT[] keys;
   private int size;
-  private Comparator<Key> comparator;
+  private Comparator<KeyT> comparator;
 
   public MinBinaryHeap(int initCapacity) {
-    keys = (Key[]) new Object[initCapacity + 1];
+    keys = (KeyT[]) new Object[initCapacity + 1];
     size = 0;
   }
 
@@ -17,20 +17,20 @@ public class MinBinaryHeap<Key> {
     this(1);
   }
 
-  public MinBinaryHeap(int initCapacity, Comparator<Key> comparator) {
+  public MinBinaryHeap(int initCapacity, Comparator<KeyT> comparator) {
     this.comparator = comparator;
-    keys = (Key[]) new Object[initCapacity + 1];
+    keys = (KeyT[]) new Object[initCapacity + 1];
     size = 0;
   }
 
-  public MinBinaryHeap(Comparator<Key> comparator) {
+  public MinBinaryHeap(Comparator<KeyT> comparator) {
     this(1, comparator);
   }
 
-  public MinBinaryHeap(Key[] keys, Comparator<Key> comparator) {
+  public MinBinaryHeap(KeyT[] keys, Comparator<KeyT> comparator) {
     size = keys.length;
     this.comparator = comparator;
-    this.keys = (Key[]) new Object[keys.length + 1];
+    this.keys = (KeyT[]) new Object[keys.length + 1];
     for (int i = 0; i < size; i++) {
       this.keys[i + 1] = keys[i];
     }
@@ -48,14 +48,14 @@ public class MinBinaryHeap<Key> {
     return size;
   }
 
-  public Key min() {
+  public KeyT min() {
     if (isEmpty()) {
       throw new NoSuchElementException("Heap underflow");
     }
     return keys[1];
   }
 
-  public void insert(Key k) {
+  public void insert(KeyT k) {
     if (size == keys.length - 1) {
       resize(2 * keys.length);
     }
@@ -63,12 +63,12 @@ public class MinBinaryHeap<Key> {
     swim(size);
   }
 
-  public Key extractMin() {
+  public KeyT extractMin() {
     if (isEmpty()) {
       throw new NoSuchElementException("Heap underflow");
     }
     exchange(1, size);
-    Key min = keys[size--];
+    KeyT min = keys[size--];
     sink(1);
     keys[size + 1] = null;
     if ((size > 0) && (size == (keys.length - 1) / 4)) {
@@ -77,8 +77,8 @@ public class MinBinaryHeap<Key> {
     return min;
   }
 
-  public MinBinaryHeap<Key> clone() {
-    MinBinaryHeap<Key> copy = new MinBinaryHeap<>(size, comparator);
+  public MinBinaryHeap<KeyT> clone() {
+    MinBinaryHeap<KeyT> copy = new MinBinaryHeap<>(size, comparator);
     for (int i = 1; i <= size; i++) {
       copy.insert(keys[i]);
     }
@@ -86,7 +86,7 @@ public class MinBinaryHeap<Key> {
   }
 
   private void resize(int capacity) {
-    Key[] temp = (Key[]) new Object[capacity];
+    KeyT[] temp = (KeyT[]) new Object[capacity];
     for (int i = 1; i <= size; i++) {
       temp[i] = keys[i];
     }
@@ -95,14 +95,14 @@ public class MinBinaryHeap<Key> {
 
   private boolean greater(int i, int j) {
     if (comparator == null) {
-      return ((Comparable<Key>) keys[i]).compareTo(keys[j]) > 0;
+      return ((Comparable<KeyT>) keys[i]).compareTo(keys[j]) > 0;
     } else {
       return comparator.compare(keys[i], keys[j]) > 0;
     }
   }
 
   private void exchange(int i, int j) {
-    Key temp = keys[i];
+    KeyT temp = keys[i];
     keys[i] = keys[j];
     keys[j] = temp;
   }

@@ -2,14 +2,14 @@ package com.vnetsim2.core.util;
 
 import java.util.NoSuchElementException;
 
-public class Queue<Item> {
-  private Node<Item> head;
-  private Node<Item> tail;
+public class Queue<ItemT> {
+  private Node<ItemT> head;
+  private Node<ItemT> tail;
   private int size;
 
-  private static class Node<Item> {
-    private Item item;
-    private Node<Item> next;
+  private static class Node<ItemT> {
+    private ItemT item;
+    private Node<ItemT> next;
   }
 
   public Queue() {
@@ -26,8 +26,8 @@ public class Queue<Item> {
     return size;
   }
 
-  public void enqueue(Item item) {
-    Node<Item> oldTail = tail;
+  public void enqueue(ItemT item) {
+    Node<ItemT> oldTail = tail;
     tail = new Node<>();
     tail.item = item;
     tail.next = null;
@@ -39,11 +39,11 @@ public class Queue<Item> {
     size++;
   }
 
-  public Item dequeue() {
+  public ItemT dequeue() {
     if (isEmpty()) {
       throw new NoSuchElementException("Queue underflow");
     }
-    Item item = head.item;
+    ItemT item = head.item;
     head = head.next;
     size--;
     if (isEmpty()) {

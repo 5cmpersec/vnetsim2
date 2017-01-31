@@ -2,13 +2,13 @@ package com.vnetsim2.core.util;
 
 import java.util.NoSuchElementException;
 
-public class Stack<Item> {
-  private Node<Item> head;
+public class Stack<ItemT> {
+  private Node<ItemT> head;
   private int size;
 
-  private static class Node<Item> {
-    private Item item;
-    private Node<Item> next;
+  private static class Node<ItemT> {
+    private ItemT item;
+    private Node<ItemT> next;
   }
 
   public Stack() {
@@ -24,19 +24,19 @@ public class Stack<Item> {
     return size;
   }
 
-  public void push(Item item) {
-    Node<Item> temp = head;
+  public void push(ItemT item) {
+    Node<ItemT> temp = head;
     head = new Node<>();
     head.item = item;
     head.next = temp;
     size++;
   }
 
-  public Item pop() {
+  public ItemT pop() {
     if (isEmpty()) {
       throw new NoSuchElementException("Stack underflow");
     }
-    Item item = head.item;
+    ItemT item = head.item;
     head = head.next;
     size--;
     return item;

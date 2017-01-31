@@ -3,13 +3,13 @@ package com.vnetsim2.core.util;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class Bag<Item> implements Iterable<Item> {
-  private Node<Item> head;
+public class Bag<ItemT> implements Iterable<ItemT> {
+  private Node<ItemT> head;
   private int size;
 
-  private static class Node<Item> {
-    private Item item;
-    private Node<Item> next;
+  private static class Node<ItemT> {
+    private ItemT item;
+    private Node<ItemT> next;
   }
 
   public Bag() {
@@ -25,22 +25,22 @@ public class Bag<Item> implements Iterable<Item> {
     return size;
   }
 
-  public void add(Item item) {
-    Node<Item> oldHead = head;
+  public void add(ItemT item) {
+    Node<ItemT> oldHead = head;
     head = new Node<>();
     head.item = item;
     head.next = oldHead;
     size++;
   }
 
-  public Iterator<Item> iterator() {
-    return new ListIterator<Item>(head);
+  public Iterator<ItemT> iterator() {
+    return new ListIterator<ItemT>(head);
   }
 
-  private class ListIterator<Item> implements Iterator<Item> {
-    private Node<Item> current;
+  private class ListIterator<ItemT> implements Iterator<ItemT> {
+    private Node<ItemT> current;
 
-    public ListIterator(Node<Item> head) {
+    public ListIterator(Node<ItemT> head) {
       current = head;
     }
 
@@ -52,11 +52,11 @@ public class Bag<Item> implements Iterable<Item> {
       throw new UnsupportedOperationException();
     }
 
-    public Item next() {
+    public ItemT next() {
       if (!hasNext()) {
         throw new NoSuchElementException();
       }
-      Item item = current.item;
+      ItemT item = current.item;
       current = current.next;
       return item;
     }

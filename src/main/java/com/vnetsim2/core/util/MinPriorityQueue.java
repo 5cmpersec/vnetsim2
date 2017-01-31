@@ -4,10 +4,10 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class MinPriorityQueue<Key> implements Iterable<Key> {
-  private MinBinaryHeap<Key> minHeap;
+public class MinPriorityQueue<KeyT> implements Iterable<KeyT> {
+  private MinBinaryHeap<KeyT> minHeap;
 
-  public MinPriorityQueue(int initCapacity, Comparator<Key> comparator) {
+  public MinPriorityQueue(int initCapacity, Comparator<KeyT> comparator) {
     minHeap = new MinBinaryHeap<>(initCapacity, comparator);
   }
 
@@ -15,7 +15,7 @@ public class MinPriorityQueue<Key> implements Iterable<Key> {
     this(1, null);
   }
 
-  public MinPriorityQueue(Key[] keys, Comparator<Key> comparator) {
+  public MinPriorityQueue(KeyT[] keys, Comparator<KeyT> comparator) {
     minHeap = new MinBinaryHeap<>(keys, comparator);
   }
 
@@ -27,24 +27,24 @@ public class MinPriorityQueue<Key> implements Iterable<Key> {
     return minHeap.size();
   }
 
-  public Key min() {
+  public KeyT min() {
     return minHeap.min();
   }
 
-  public Key extractMin() {
+  public KeyT extractMin() {
     return minHeap.extractMin();
   }
 
-  public void insert(Key k) {
+  public void insert(KeyT k) {
     minHeap.insert(k);
   }
 
-  public Iterator<Key> iterator() {
+  public Iterator<KeyT> iterator() {
     return new HeapSortIterator();
   }
 
-  private class HeapSortIterator implements Iterator<Key> {
-    private MinBinaryHeap<Key> copy;
+  private class HeapSortIterator implements Iterator<KeyT> {
+    private MinBinaryHeap<KeyT> copy;
 
     public HeapSortIterator() {
       copy = minHeap.clone();
@@ -58,7 +58,7 @@ public class MinPriorityQueue<Key> implements Iterable<Key> {
       throw new UnsupportedOperationException();
     }
 
-    public Key next() {
+    public KeyT next() {
       if (!hasNext()) {
         throw new NoSuchElementException();
       }
