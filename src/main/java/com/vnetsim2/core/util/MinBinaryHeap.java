@@ -55,11 +55,11 @@ public class MinBinaryHeap<KeyT> {
     return keys[1];
   }
 
-  public void insert(KeyT k) {
+  public void insert(KeyT key) {
     if (size == keys.length - 1) {
       resize(2 * keys.length);
     }
-    keys[++size] = k;
+    keys[++size] = key;
     swim(size);
   }
 

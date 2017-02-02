@@ -35,8 +35,8 @@ public class MinPriorityQueue<KeyT> implements Iterable<KeyT> {
     return minHeap.extractMin();
   }
 
-  public void insert(KeyT k) {
-    minHeap.insert(k);
+  public void insert(KeyT key) {
+    minHeap.insert(key);
   }
 
   public Iterator<KeyT> iterator() {
