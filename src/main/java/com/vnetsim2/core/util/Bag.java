@@ -37,7 +37,7 @@ public class Bag<ItemT> implements Iterable<ItemT> {
     return new ListIterator<ItemT>(head);
   }
 
-  private class ListIterator<ItemT> implements Iterator<ItemT> {
+  private class ListIterator<T> implements Iterator<ItemT> {
     private Node<ItemT> current;
 
     public ListIterator(Node<ItemT> head) {
