@@ -8,6 +8,7 @@ public class MinBinaryHeap<KeyT> {
   private int size;
   private Comparator<KeyT> comparator;
 
+  @SuppressWarnings("unchecked")
   public MinBinaryHeap(int initCapacity) {
     keys = (KeyT[]) new Object[initCapacity + 1];
     size = 0;
@@ -17,6 +18,7 @@ public class MinBinaryHeap<KeyT> {
     this(1);
   }
 
+  @SuppressWarnings("unchecked")
   public MinBinaryHeap(int initCapacity, Comparator<KeyT> comparator) {
     this.comparator = comparator;
     keys = (KeyT[]) new Object[initCapacity + 1];
@@ -27,6 +29,7 @@ public class MinBinaryHeap<KeyT> {
     this(1, comparator);
   }
 
+  @SuppressWarnings("unchecked")
   public MinBinaryHeap(KeyT[] keys, Comparator<KeyT> comparator) {
     size = keys.length;
     this.comparator = comparator;
@@ -86,6 +89,7 @@ public class MinBinaryHeap<KeyT> {
   }
 
   private void resize(int capacity) {
+    @SuppressWarnings("unchecked")
     KeyT[] temp = (KeyT[]) new Object[capacity];
     for (int i = 1; i <= size; i++) {
       temp[i] = keys[i];
@@ -93,6 +97,7 @@ public class MinBinaryHeap<KeyT> {
     keys = temp;
   }
 
+  @SuppressWarnings("unchecked")
   private boolean greater(int i, int j) {
     if (comparator == null) {
       return ((Comparable<KeyT>) keys[i]).compareTo(keys[j]) > 0;
