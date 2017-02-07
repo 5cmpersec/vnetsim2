@@ -85,7 +85,7 @@ public class EdgeWeightedGraph {
   private void validateVertex(int v) {
     if (v < 0 || v >= V) {
       throw new IllegalArgumentException(
-          "vertext " + v + " must be value between 0 and " + (V - 1));
+          "vertex " + v + " must be value between 0 and " + (V - 1));
     }
   }
 }
