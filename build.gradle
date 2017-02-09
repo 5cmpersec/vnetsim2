@@ -3,10 +3,16 @@ plugins {
     id 'com.github.kt3k.coveralls' version '2.6.3'
 }
 
-apply plugin: 'java'
+apply plugin: 'application'
 apply plugin: 'jacoco'
 apply plugin: 'com.github.kt3k.coveralls'
 apply plugin: 'checkstyle'
+
+mainClassName = "com.vnetsim2.ui.MainApp"
+
+jar {
+    manifest.attributes("Main-Class": mainClassName)
+}
 
 repositories {
     mavenCentral()
