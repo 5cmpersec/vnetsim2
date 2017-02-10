@@ -11,8 +11,11 @@ public class MainApp extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-    Scene scene = new Scene(FXMLLoader.<Parent>load(MainApp.class.getResource("main_app.fxml")), 1080, 668);
+    Scene scene = new Scene(FXMLLoader.<Parent>load(MainApp.class.getResource("main_app.fxml")),
+        1080, 668);
     primaryStage.setScene(scene);
+    primaryStage.setResizable(false);
+    primaryStage.setTitle("vnetsim2");
     primaryStage.show();
   }
 
