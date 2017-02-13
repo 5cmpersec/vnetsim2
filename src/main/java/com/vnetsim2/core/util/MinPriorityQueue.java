@@ -4,6 +4,11 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * Represents a priority queue of generic keys.
+ *
+ * @param <KeyT> the generic type of key on this priority queue.
+ */
 public class MinPriorityQueue<KeyT> implements Iterable<KeyT> {
   private MinBinaryHeap<KeyT> minHeap;
 
@@ -39,6 +44,7 @@ public class MinPriorityQueue<KeyT> implements Iterable<KeyT> {
     minHeap.insert(key);
   }
 
+  @Override
   public Iterator<KeyT> iterator() {
     return new HeapSortIterator();
   }
@@ -50,14 +56,17 @@ public class MinPriorityQueue<KeyT> implements Iterable<KeyT> {
       copy = minHeap.clone();
     }
 
+    @Override
     public boolean hasNext() {
       return !copy.isEmpty();
     }
 
+    @Override
     public void remove() {
       throw new UnsupportedOperationException();
     }
 
+    @Override
     public KeyT next() {
       if (!hasNext()) {
         throw new NoSuchElementException();
