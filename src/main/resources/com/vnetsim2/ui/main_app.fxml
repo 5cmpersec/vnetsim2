@@ -49,7 +49,7 @@
                   <Label text="Label" GridPane.rowIndex="7" />
                   <Label text="Label" GridPane.rowIndex="9" />
                   <Label text="Label" GridPane.rowIndex="11" />
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Start" GridPane.rowIndex="12" />
+                  <Button fx:id="btnStart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Start" GridPane.rowIndex="12" />
                </children>
             </GridPane>
          </children></AnchorPane>
