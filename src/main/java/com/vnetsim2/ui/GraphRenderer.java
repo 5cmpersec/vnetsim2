@@ -8,7 +8,7 @@ public class GraphRenderer {
   public enum Mode {
     ORIGINAL,
     MST
-  };
+  }
   Canvas canvas;
   GraphModel model;
 

@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 
 public class MainAppController {
 
-  final int ALERT_INVALID_INPUT_NUMBER = 0;
+  static final int ALERT_INVALID_INPUT_NUMBER = 0;
 
   @FXML
   private Button btnGenerate;
@@ -53,7 +53,7 @@ public class MainAppController {
   }
 
   private void showDialog(int dialog) {
-    switch(dialog) {
+    switch (dialog) {
       case ALERT_INVALID_INPUT_NUMBER:
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Invalid Input");
