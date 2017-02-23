@@ -54,14 +54,14 @@ public class Queue<ItemT> {
    * @param item the item to add.
    */
   public void enqueue(ItemT item) {
-    Node<ItemT> oldTail = tail;
+    Node<ItemT> temp = tail;
     tail = new Node<>();
     tail.item = item;
     tail.next = null;
-    if (oldTail == null) {
+    if (temp == null) {
       head = tail;
     } else {
-      oldTail.next = tail;
+      temp.next = tail;
     }
     size++;
   }
@@ -75,12 +75,12 @@ public class Queue<ItemT> {
     if (isEmpty()) {
       throw new NoSuchElementException("Queue underflow");
     }
-    ItemT item = head.item;
+    ItemT temp = head.item;
     head = head.next;
     size--;
     if (isEmpty()) {
       tail = null;
     }
-    return item;
+    return temp;
   }
 }
