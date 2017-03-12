@@ -2,8 +2,6 @@
 
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -22,34 +20,12 @@
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Button fx:id="btnGenerate" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Generate" />
                   <TextField fx:id="txtGenNumber" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Number of Vertexes" GridPane.columnIndex="1" />
-                  <Label fx:id="labelAlpha" text="Label" GridPane.rowIndex="1" />
-                  <Slider GridPane.columnSpan="2147483647" GridPane.rowIndex="2" />
-                  <Label text="Label" GridPane.rowIndex="3" />
-                  <Slider GridPane.columnSpan="2147483647" GridPane.rowIndex="4" />
-                  <Slider GridPane.columnSpan="2147483647" GridPane.rowIndex="6" />
-                  <Slider GridPane.columnSpan="2147483647" GridPane.rowIndex="8" />
-                  <Slider GridPane.columnSpan="2147483647" GridPane.rowIndex="10" />
-                  <Label text="Label" GridPane.rowIndex="5" />
-                  <Label text="Label" GridPane.rowIndex="7" />
-                  <Label text="Label" GridPane.rowIndex="9" />
-                  <Label text="Label" GridPane.rowIndex="11" />
-                  <Button fx:id="btnStart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Start" GridPane.rowIndex="12" />
+                  <Button fx:id="btnStart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Start" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </children></AnchorPane>
